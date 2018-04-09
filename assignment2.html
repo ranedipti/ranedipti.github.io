@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style>
+		.ans{width: 190px;height: 30px;line-height: 30px;background: #595757;color: #fff;text-transform: uppercase;text-align: center;cursor: pointer;}
+		.answers{display: none;font-size: 16px;line-height: 26px;font-family: arial;color: #6e4c8b;}
+		.Question{font-size: 20px;color: #000;font-family: arial;}
+		#getcolor{display: none;font-size: 60px;position: absolute;left: 50%;top: 50%;width: 450px;margin-left: -225px; height: 90px;margin-top: -45px;line-height: 90px;}
+		#largnum{font-weight: bold;}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+	<p class="Question">Q 1.var counter = 0;
+	 counter++; ++counter; alert( counter );
+	What will alert this and why?</p>
+	<div class="ans" onclick="ans1();">Answer</div>
+	<div class="ans1 answers"><b>Ans: </b> alert( counter ) will display 2. Initially counter is 0 then after counter++ it will increase by 1 and after applying prefix increment operator its value will be 2.</div>
+
+	<p class="Question">Q 2. var n = 2; n *= 3 + 5; alert( n );
+	What will alert this and why?</p>
+	<div class="ans" onclick="ans2();">Answer</div>
+	<div class="ans2 answers"><b>Ans: </b> alert( n ) is 16. n *= 3 + 5 gives n*= 8. <br>n=n*8<br> n=2*8  so n becomes 16.</div>
+
+	<p class="Question">Q 3. What are the final values of all variables a, b, c and d after the code below?
+	var a = 1, b = 1; 
+	var c = ++a; 
+	var d = b++;</p>
+	<div class="ans" onclick="ans3();">Answer</div>
+	<div class="ans3 answers"><b>Ans: </b> a=2(prefix operator first increses value of a to 1 and then returns 2)
+		<br>c=2(a becomes 2 after applying prefix increment operator and then its value assigned to c)<br>
+		d=1(postfix increment operator returns the original value first and then increments var by 1 so b assigns its original value to d and then it becomes 2 )<br>
+		b=2
+		</div>
+
+	<p class="Question">Q 4. What are the values of a and x after the code below?
+	var a = 2; var x = 1 + (a *= 2);</p>
+	<div class="ans" onclick="ans4();">Answer</div>
+	<div class="ans4 answers"><b>Ans: </b> a=4<br>x=5</div>
+
+	<p class="Question">Q 5. Find greatest among 4 numbers</p>
+	<div class="ans" onclick="ans5();">Answer</div>
+	<div class="ans5 answers"><b>Ans: </b> 
+		
+		<div>
+			a=5;<br>
+			b=9;<br>
+			c=36;<br>
+			d= 18;<br>
+			if (a>b && a>c && a>d)<br>
+			{<br>
+			    document.getElementById("largnum").innerHTML=a;<br>
+			}<br>
+			else if (b>a && b>c && b>d)<br>
+			{<br>
+			    document.getElementById("largnum").innerHTML=b;<br>
+			}<br>
+			else if (c>a && c>b && c>d)<br>
+			{<br>
+			    document.getElementById("largnum").innerHTML=c;<br>
+			}<br>
+
+			else<br>
+			{<br>
+			    document.getElementById("largnum").innerHTML=d;<br>
+			}
+		</div>
+		<div id="largnum"></div>
+	</div>
+
+	<p class="Question">Q 6. Rewrite this if using the ternary operator '?':
+	if (a + b < 4) { result = 'Below'; } else { result = 'Over'; }</p>
+	<div class="ans" onclick="ans6();">Answer</div>
+	<div class="ans6 answers"><b>Ans: </b> (a + b < 4) ? 'Below' : 'Over';</div>
+
+
+	<p class="Question">Q 7. Rewrite following to switch
+	var a = +prompt('a?', ''); if (a == 0) { alert( 0 ); } if (a == 1) { alert( 1 ); } if (a == 2 || a == 3) { alert( '2,3' );</p>
+	<div class="ans" onclick="ans7();">Answer</div>
+	<div class="ans7 answers"><b>Ans: </b> 
+		var a = +prompt('a?', '');<br>
+		switch(a)<br>
+		{<br>
+			case 0:<br>
+					alert( 0 );<br>
+					break;<br>
+			case 1:<br>
+					alert( 1 );<br>
+					break;<br>
+			case (a == 2 || a == 3):<br>
+					alert( '2,3' );<br>
+					break;<br>
+			default:<br>
+					alert("nothing");<br>
+					break;<br>
+		}
+	</div>
+
+	<p class="Question">Q 8.Write a condition to check if the given age is of a teenager or no.</p>
+	<div class="ans"  onclick="ans8();">Answer</div>
+	<div class="ans8 answers"><b>Ans: </b> 
+		var age;<br>
+		if(age<18)
+		<br>
+		{
+			alert("You are teenager");
+		}
+		<br>
+		else
+		{
+			alert("You can Vote";)
+		}
+	</div>
+
+	<p class="Question">Q 9. Print/alert todays Day using switch & if-else. Also print a message saying “It is a weekend” if Saturday or Sunday! or be creative.</p>
+	<div class="ans" onclick="ans9();">Answer</div>
+	<div class="ans9 answers"><b>Ans: </b> 
+		<div id="day"></div>
+		<div id="day1"></div>
+	</div>
+
+	<p class="Question">Q 10. Set the color (yellow:morning, blue:evening, black:night) of body tag based on your system time. showcase your creativity.</p>
+	<div class="ans" onclick="ans10();">Answer</div>
+	<div class="ans10 answers"></div> 
+
+</div>
+<div id="getcolor"></div>
+
+<script>
+	function ans1()
+	{
+		document.getElementsByClassName("ans1")[0].style.display="block";
+		document.getElementsByClassName("ans")[0].style.display="none";
+	}
+	function ans2()
+	{
+		document.getElementsByClassName("ans2")[0].style.display="block";
+		document.getElementsByClassName("ans")[1].style.display="none";
+	}
+	function ans3()
+	{
+		document.getElementsByClassName("ans3")[0].style.display="block";
+		document.getElementsByClassName("ans")[2].style.display="none";
+	}
+	function ans4()
+	{
+		document.getElementsByClassName("ans4")[0].style.display="block";
+		document.getElementsByClassName("ans")[3].style.display="none";
+		
+	}
+	function ans5()
+	{
+		document.getElementsByClassName("ans5")[0].style.display="block";
+		document.getElementsByClassName("ans")[4].style.display="none";
+		greatestNumber();
+	}
+	function ans6()
+	{
+		document.getElementsByClassName("ans6")[0].style.display="block";
+		document.getElementsByClassName("ans")[5].style.display="none";
+	}
+	
+	function ans7()
+	{
+		document.getElementsByClassName("ans7")[0].style.display="block";
+		document.getElementsByClassName("ans")[6].style.display="none";
+
+
+	}
+	function ans8()
+	{
+		document.getElementsByClassName("ans8")[0].style.display="block";
+		document.getElementsByClassName("ans")[7].style.display="none";
+	}
+	function ans9()
+	{
+		document.getElementsByClassName("ans9")[0].style.display="block";
+		document.getElementsByClassName("ans")[8].style.display="none";
+	}
+	function ans10()
+	{
+		document.getElementsByClassName("ans10")[0].style.display="block";
+		document.getElementsByClassName("ans")[9].style.display="none";
+		checkDay();
+	}
+
+	var day = new Date();
+	weekdays = ["Sun","Mon","Tue","Wed","thu","Fri","Sat"];
+	today = weekdays[day.getDay()];
+	//alert(today);
+	var displayDay;
+	switch(today)
+	{
+		case "Sun":
+					displayDay="It is a weekend";
+					break;
+		case "Mon":
+					displayDay="Today is Monday";
+					break;
+		case "Tue":
+					displayDay="Today is Tuesday";
+					break;
+		case "Wed":
+					displayDay="Today is Wednsday";
+					break;
+		case "Thu":
+					displayDay="Today is Thursday";
+					break;
+		case "Fri":
+					displayDay="Today is Friday";
+					break;
+		case "Sat":
+					displayDay="It is a weekend";
+					break;
+	
+	}
+	document.getElementById("day").innerHTML = displayDay;
+
+	if(today=="Sun")
+	{
+		document.getElementById("day1").innerHTML = "It is a weekend";
+	}
+	if(today=="Mon")
+	{
+		document.getElementById("day1").innerHTML = "It is a Monday";
+	}
+	if(today=="Tue")
+	{
+		document.getElementById("day1").innerHTML = "It is a Tuesday";
+	}
+	if(today=="Wed")
+	{
+		document.getElementById("day1").innerHTML = "It is a Wednsday";
+	}
+	if(today=="Thu")
+	{
+		document.getElementById("day1").innerHTML = "It is a Thursday";
+	}
+	if(today=="Fri")
+	{
+		document.getElementById("day1").innerHTML = "It is a Friday";
+	}
+	if(today=="Sat")
+	{
+		document.getElementById("day1").innerHTML = "It is a weekend";
+	}
+
+function checkDay(){
+ var day = new Date();
+ var hrs = day.getHours();
+ //alert(hrs);
+
+ if(hrs>=0 && hrs<=12)
+ {
+ 	document.body.style.backgroundColor = "yellow";
+ 	document.getElementsByClassName("wrap")[0].style.display="none";
+ 	document.getElementById("getcolor").setAttribute("style", "color: #f00; display: block;");
+ 	document.getElementById("getcolor").innerHTML = "Good Morning!!!";
+ }
+ else if(hrs>=4 && hrs<=17)
+ {
+ 	document.body.style.backgroundColor = "blue";
+ 	document.getElementsByClassName("wrap")[0].style.display="none";
+ 	document.getElementById("getcolor").setAttribute("style", "color: #fff; display: block;");
+ 	document.getElementById("getcolor").innerHTML = "Good evening!!!";
+
+ }
+ else if(hrs>17 && hrs<=23)
+ {
+ 	document.body.style.backgroundColor = "black";
+ 	document.getElementsByClassName("wrap")[0].style.display="none";
+ 	document.getElementById("getcolor").setAttribute("style", "color: #fff; display: block;");
+ 	document.getElementById("getcolor").innerHTML = "Good Night!!!";
+ }
+}
+
+function greatestNumber(){
+a=5;
+b=9;
+c=36;
+d= 18;
+if (a>b && a>c && a>d)
+{
+    document.getElementById("largnum").innerHTML="Greatest Number is" + " " +a;
+}
+else if (b>a && b>c && b>d)
+{
+    document.getElementById("largnum").innerHTML="Greatest Number is" + " " +b;
+}
+else if (c>a && c>b && c>d)
+{
+    document.getElementById("largnum").innerHTML="Greatest Number is" + " " +c;
+}
+
+else
+{
+    document.getElementById("largnum").innerHTML="Greatest Number is" + " " +d;
+}
+}
+
+</script>
+</body>
+</html>
