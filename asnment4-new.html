@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<style>
+	#ans{font-size: 25px;}
+	/*#navbar{margin-top: 200px;}*/
+	#navbar li{display: inline-block;}
+	.active{position: fixed;top: 0;}
+	.fixed-nav #navbar {
+		position: fixed;
+		top:0;
+		z-index: 1;
+	}
+	.tabcontent{display: none;font-size: 20px;}
+	.tabhead{display: inline-block;width: 80px;height: 50px;line-height: 50px; text-transform: capitalize;font-size: 20px;background: #ccc;text-align: center;cursor: pointer;}
+	.active-tab{background: #fff;}
+</style>
+</head>
+<body>
+	<div class="wrap">1<br>
+		Enter Text or Number: <input type="text" name="" id="checktxt">
+		<button onclick="Btn()">Click here</button>
+		<div id="ans"></div>
+
+		<br><br>
+		2<br>
+
+		
+
+
+	</div>
+
+
+	<script type="text/javascript">
+		
+		function tocheckPalindrome(str){
+			var str=document.getElementById("checktxt").value;
+			var re = /[^A-Za-z0-9]/g;
+			var strLow = str.toLowerCase().replace(re, '');
+			console.log(strLow);
+			var strSplit = strLow.split("");
+			console.log(strSplit);
+			var strReverse = strSplit.reverse();
+			console.log(strReverse);
+			var strJoin = strReverse.join("");
+			console.log(strJoin);
+
+			if(str==="")
+			{
+				alert("Please Enter Valid Text");
+			}
+			else{
+				if(strLow === strJoin)
+				{
+				var result= strLow+ " " + "is palindrome";
+				// alert();
+			}
+				else
+				{
+					var result= strLow+ " "  + "is not a palindrome";
+				}
+				document.getElementById("ans").innerHTML = result;
+				document.getElementById("checktxt").value="";
+			}
+		}
+
+		function Btn(){
+	 	tocheckPalindrome();
+	 	}
+
+
+//2
+function fiboncii(num){
+	var first_num= 0;
+	var second_num= 1;
+	var next_num;
+	while (second_num <= num) {
+	    next_num = first_num + second_num;  
+		first_num = second_num;   
+		second_num = next_num;    
+		document.write(next_num);
+		
+}
+}
+fiboncii(6);
+
+//3 a
+function findLargest(){
+	arr = [10,70,30];
+	var largest =0;
+
+for(i=0;i<arr.length;i++)
+{
+	if(largest<=arr[i])
+	largest=arr[i];
+
+}
+console.log(largest);
+}
+findLargest();
+
+//3 b
+function findSmallest(){
+	var array =[2,3,1,9,8];
+	var smallest = array[0]; 
+	for (var i = 0; i < array.length; i++) {
+    if(array[i]<smallest)
+    {
+        smallest = array[i];
+    }
+
+}
+  console.log(smallest);
+}
+
+findSmallest();
+
+//6
+var tabarr =[
+{
+	tab:"tab1",content:"This is content1"
+},
+{
+	tab:"tab2",content:"This is content2"
+},
+{
+	tab:"tab3",content:"This is content3"
+},
+{
+	tab:"tab4",content:"This is content4"
+}
+,
+{
+	tab:"tab5",content:"This is content5"
+}
+
+]
+var tabcls = document.getElementsByClassName("tabhead");
+var tabcont = document.getElementsByClassName("tabcontent");
+function tabCreation(){	
+	for(ans in tabarr)
+	{
+		var tabdiv = document.createElement("div");
+		// console.log(tabarr[ans].tab);
+				//console.log(tabdiv);
+				tabdiv.classList.add("tabhead");
+				var t = document.createTextNode(tabarr[ans].tab); 
+				document.body.appendChild(tabdiv);
+				tabdiv.appendChild(t);
+				// console.log(div.appendChild(t));
+				
+			}
+				for (var i = 0; i < tabcls.length; i++) {
+					tabcls[i].setAttribute("id", i); 
+					console.log(tabcls[i]);
+						}
+					tabContCreate();
+
+		}
+		function tabContCreate(){
+			for(ans in tabarr){
+				var tabcontent = document.createElement("p");
+				tabcontent.classList.add("tabcontent");
+				var tc = document.createTextNode(tabarr[ans].content); 
+				document.body.appendChild(tabcontent);
+				tabcontent.appendChild(tc);
+				 // document.getElementsBClassName("tabcontent")[i].style.display="none";
+				}
+
+				for (var i = 0; i < tabcont.length; i++) {
+							tabcont[i].setAttribute("id", i); 
+							console.log(tabcont[i]);
+					}
+			}
+
+			function tabclick(){
+				tabCreation();
+				// var tabcls = document.getElementsByClassName("tabhead");
+				// var tabcont = document.getElementsByClassName("tabcontent");
+				 for (var i = 0; i < tabcls.length; i++) {
+					 tabcls[i].addEventListener("click", myFunction);
+						}
+				
+		}
+		tabclick();
+		function myFunction(event){
+			
+			for(var i = 0;i<tabarr.length;i++)
+			{
+				console.log(tabcont[i].id)
+				console.log(event);
+				if(event.target.id === tabcont[i].id)
+				{
+					tabcont[i].style.display="block";
+					tabcls[i].classList.add("active-tab");
+				}
+				else{
+					tabcont[i].style.display="none";
+					tabcls[i].classList.remove("active-tab");
+				}
+			}
+
+		}
+	
+	</script>
+</body>
+</html>
